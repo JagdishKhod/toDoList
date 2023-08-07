@@ -1,0 +1,10 @@
+.container-fluid{
+    border-block: 10px;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+
+}
+.container{
+    margin: 20px;
+}
