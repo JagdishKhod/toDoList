@@ -11,26 +11,7 @@ export class TodosComponent implements OnInit {
   todos: any[]=[];
   constructor()
   {
-  this.todos=[
-    {
-      srn:1,
-      title: "This is Title 1",
-      desc: "Description",
-      active:true
-    },
-    {
-      srn:2,
-      title: "This is Title 2",
-      desc: "Description",
-      active:true
-    },
-    {
-      srn:3,
-      title: "This is Title 3",
-      desc: "Description",
-      active:true
-    },
-   ]
+  this.todos=[ ];
   }
 
   ngOnInit(): void {
@@ -42,6 +23,12 @@ export class TodosComponent implements OnInit {
     console.log(todo);
     const index =this.todos.indexOf(todo);
     this.todos.splice(index,1)
+    localStorage.setItem("todos",JSON.stringify(this.todos));
   }
+  addTodo(todo:Todo){
+    console.log(todo);
+    this.todos.push(todo);
+    localStorage.setItem("todos",JSON.stringify(this.todos));
 
+  }
 }
