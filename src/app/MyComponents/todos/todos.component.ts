@@ -7,11 +7,18 @@ import { Todo } from 'src/app/Todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-
+  localIteam:any;
   todos: any[]=[];
   constructor()
   {
-  this.todos=[ ];
+    this.localIteam = localStorage.getItem("todos");
+    if(this.localIteam == null){
+      this.todos = [];
+    }
+    else{
+      this.todos = JSON.parse(this.localIteam);
+    }
+  //this.todos=[ ];
   }
 
   ngOnInit(): void {
